@@ -1,0 +1,241 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+<style>
+    .btn-check:active+.btn-outline-primary, .btn-check:checked+.btn-outline-primary, .btn-outline-primary.active, .btn-outline-primary.dropdown-toggle.show, .btn-outline-primary:active {
+        color: #fff;
+        background-color: #40B5E9;
+        border-color: #40B5E9;
+    }
+
+    a {
+        text-decoration: none;
+        color: #40B5E9;
+    }
+</style>
+<div class="container-fluid header bg-white p-0">
+    <div class="row g-0 align-items-center flex-column-reverse flex-md-row">
+        <!-- Text Content for About Us -->
+        <div class="col-md-6 p-5 mt-lg-5 ">
+            <h1 style="font-weight: bold;" class="display-5 animated fadeIn mb-4">
+                About <span style="color: #40B5E9;">ABN Realtors Group</span>
+            </h1>
+            <p style="color: black;" class="animated fadeIn mb-4 pb-2">
+                At ABN Realtors Group, we are dedicated to empowering real estate professionals through a blend
+                of innovative technology, comprehensive market insights, and unparalleled support. Our expertise
+                in the Nigerian real estate sector enables us to offer a range of services tailored to the
+                unique needs of both new and experienced realtors. From exclusive property listings and
+                cutting-edge marketing tools to personalized training sessions and networking events, we provide
+                everything necessary for success in this dynamic industry.
+            </p>
+
+        </div>
+
+        <!-- Existing Carousel for About Us -->
+        <div class="col-md-6 animated fadeIn">
+            <div id="carouselExampleSlidesOnly" class="carousel slide" data-bs-ride="carousel">
+                <div class="carousel-inner">
+                  <div class="carousel-item  active" data-bs-interval="1000">
+                    <img  src="{% static 'img/carousel-1.jpg' %}" class="d-block w-100" alt="...">
+                  </div>
+                  <div class="carousel-item" data-bs-interval="1000">
+                    <img src="{% static 'img/carousel-2.jpg' %}" class="d-block w-100" alt="...">
+                  </div>
+                </div>
+              </div>
+        </div>
+    </div>
+</div>
+<!-- About Us End -->
+
+
+
+<!-- About Start -->
+<!-- Mission Section with Image on the Right -->
+<div class="container-xxl py-5">
+    <div class="container">
+        <div class="row g-5 align-items-center">
+            <div class="col-lg-6 wow fadeIn order-lg-2">
+                <h2>Our Vision</h2>
+                <p style="color: black;">Our vision at ABN Realtors Group is to be the leading real estate service provider in
+                    Nigeria, renowned for our expertise, professionalism, and impact on the industry. We aspire
+                    to transform the property landscape through innovative approaches, setting new standards for
+                    customer service and community involvement. Our goal is to empower individuals and
+                    businesses alike in achieving their real estate aspirations.</p>
+
+            </div>
+            <div class="col-lg-6 wow fadeIn order-lg-1">
+                <img class="img-fluid" src="{% static 'img/header.jpg' %}" alt="">
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="container-xxl py-5">
+    <div class="container">
+        <div class="row g-5 align-items-center">
+            <div class="col-lg-6 wow fadeIn">
+                <h2 class="mb-4">Our Mission</h2>
+                <p style="color: black;">At ABN Realtors Group, our mission is to provide innovative and effective real estate
+                    solutions that cater to the diverse needs of our clients. We are dedicated to facilitating
+                    seamless property transactions, fostering lasting relationships, and delivering value in
+                    every interaction. Our commitment to excellence, integrity, and client satisfaction drives
+                    our success in the dynamic Nigerian real estate market.</p>
+
+            </div>
+            <div class="col-lg-6 wow fadeIn">
+                <img class="img-fluid" src="{% static 'img/header.jpg' %}" alt="">
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Vision Section with Image on the Left -->
+
+
+
+
+
+<div class="container-xxl py-5">
+    <div class="container">
+        <div class="row g-5 align-items-center">
+            <div class="col-lg-6 wow fadeIn" data-wow-delay="0.1s">
+                <div class="about-img position-relative overflow-hidden p-5 pe-0">
+                    <img class="img-fluid w-100" src="{% static 'img/about.jpg' %}">
+                </div>
+            </div>
+            <div class="col-lg-6 wow fadeIn" data-wow-delay="0.5s">
+                <h1 class="mb-4">Why Choose ABN Realtors Group</h1>
+                <p style="color: black;" class="mb-4">At ABN Realtors Group, we stand out in the Nigerian real estate market through
+                    our comprehensive approach to property sales and acquisitions. Our expertise in local and
+                    international property markets ensures that clients receive the best possible advice and
+                    opportunities.</p>
+                <p style="color: black;"><i class="fa fa-check me-3" style="color: #40B5E9;"></i>Extensive Market Knowledge and Network</p>
+                <p style="color: black;"><i class="fa fa-check me-3" style="color: #40B5E9;"></i>Innovative Marketing and Sales Strategies</p>
+                <p style="color: black;"><i class="fa fa-check me-3" style="color: #40B5E9;"></i>Personalized Service Tailored to Individual
+                    Client Needs</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- About End -->
+
+
+<!-- Call to Action Start -->
+<div class="container-xxl py-5">
+    <div class="container">
+        <div class="bg-light rounded p-3">
+            <div class="bg-white rounded p-4" style="border: 1px dashed rgba(0, 185, 142, .3)">
+                <div class="row g-5 align-items-center">
+                    <div class="col-lg-6 wow fadeIn" data-wow-delay="0.1s">
+                        <img class="img-fluid rounded w-100" src="{% static 'img/call-to-action.jpg' %}" alt="">
+                    </div>
+                    <div class="col-lg-6 wow fadeIn" data-wow-delay="0.5s">
+                        <div class="mb-4">
+                            <h1 class="mb-3">Connect With Our Expert Realtors</h1>
+                            <p style="color: black;">Experience the best in real estate with ABN Realtors Group's certified agents.
+                                Our team is dedicated to finding you the perfect property in Lagos and across
+                                Nigeria. From first-time home buyers to seasoned investors, we offer
+                                personalized services to meet your unique real estate needs.</p>
+                        </div>
+                        <a href="" style="background-color: #40B5E9; color:white" class="btn py-3 px-4 me-2"><i
+                                class="fa fa-phone-alt me-2"></i>Make A Call</a>
+                        <a href="" class="btn btn-dark py-3 px-4"><i
+                                class="fa fa-calendar-alt me-2"></i>Schedule Appointment</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Call to Action End -->
+
+
+<!-- Team Start -->
+<div class="container-xxl py-5">
+    <div class="container">
+        <div class="text-center mx-auto mb-5 wow fadeInUp" data-wow-delay="0.1s" style="max-width: 600px;">
+            <h1 class="mb-3">Our Experienced Property Agents</h1>
+            <p style="color: black;">Meet our team of skilled and knowledgeable property agents, each dedicated to helping you find
+                the ideal property in Nigeria. Our experts bring a wealth of local knowledge and experience to
+                ensure you receive the best service.</p>
+        </div>
+        <div class="row g-4">
+            <!-- Team Member 1 -->
+            <div class="col-lg-3 col-md-6 wow fadeInUp" data-wow-delay="0.1s">
+                <div class="team-item rounded overflow-hidden">
+                    <div class="position-relative">
+                        <img class="img-fluid" src="{% static 'img/team-1.jpg' %}" alt="Adeola Oke">
+                        <div
+                            class="position-absolute start-50 top-100 translate-middle d-flex align-items-center">
+                            <a class="btn btn-square mx-1" href=""><i class="fab fa-facebook-f"></i></a>
+                            <a class="btn btn-square mx-1" href=""><i class="fab fa-twitter"></i></a>
+                            <a class="btn btn-square mx-1" href=""><i class="fab fa-instagram"></i></a>
+                        </div>
+                    </div>
+                    <div class="text-center p-4 mt-3">
+                        <h5 class="fw-bold mb-0">Adeola Oke</h5>
+                        <small>Lead Residential Advisor</small>
+                    </div>
+                </div>
+            </div>
+            <!-- Team Member 2 -->
+            <div class="col-lg-3 col-md-6 wow fadeInUp" data-wow-delay="0.3s">
+                <div class="team-item rounded overflow-hidden">
+                    <div class="position-relative">
+                        <img class="img-fluid" src="{% static 'img/team-2.jpg' %}" alt="Chinedu Ihejirika">
+                        <div
+                            class="position-absolute start-50 top-100 translate-middle d-flex align-items-center">
+                            <a class="btn btn-square mx-1" href=""><i class="fab fa-facebook-f"></i></a>
+                            <a class="btn btn-square mx-1" href=""><i class="fab fa-twitter"></i></a>
+                            <a class="btn btn-square mx-1" href=""><i class="fab fa-instagram"></i></a>
+                        </div>
+                    </div>
+                    <div class="text-center p-4 mt-3">
+                        <h5 class="fw-bold mb-0">Chinedu Ihejirika</h5>
+                        <small>Commercial Property Specialist</small>
+                    </div>
+                </div>
+            </div>
+            <!-- Team Member 3 -->
+            <div class="col-lg-3 col-md-6 wow fadeInUp" data-wow-delay="0.5s">
+                <div class="team-item rounded overflow-hidden">
+                    <div class="position-relative">
+                        <img class="img-fluid" src="{% static 'img/team-3.jpg' %}" alt="Amara Nnaji">
+                        <div
+                            class="position-absolute start-50 top-100 translate-middle d-flex align-items-center">
+                            <a class="btn btn-square mx-1" href=""><i class="fab fa-facebook-f"></i></a>
+                            <a class="btn btn-square mx-1" href=""><i class="fab fa-twitter"></i></a>
+                            <a class="btn btn-square mx-1" href=""><i class="fab fa-instagram"></i></a>
+                        </div>
+                    </div>
+                    <div class="text-center p-4 mt-3">
+                        <h5 class="fw-bold mb-0">Amara Nnaji</h5>
+                        <small>Senior Investment Analyst</small>
+                    </div>
+                </div>
+            </div>
+            <!-- Team Member 4 -->
+            <div class="col-lg-3 col-md-6 wow fadeInUp" data-wow-delay="0.7s">
+                <div class="team-item rounded overflow-hidden">
+                    <div class="position-relative">
+                        <img class="img-fluid" src="{% static 'img/team-4.jpg' %}" alt="Tunde Afolayan">
+                        <div
+                            class="position-absolute start-50 top-100 translate-middle d-flex align-items-center">
+                            <a class="btn btn-square mx-1" href=""><i class="fab fa-facebook-f"></i></a>
+                            <a class="btn btn-square mx-1" href=""><i class="fab fa-twitter"></i></a>
+                            <a class="btn btn-square mx-1" href=""><i class="fab fa-instagram"></i></a>
+                        </div>
+                    </div>
+                    <div class="text-center p-4 mt-3">
+                        <h5 class="fw-bold mb-0">Tunde Afolayan</h5>
+                        <small>Real Estate Marketing Expert</small>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Team End -->
+{% endblock %}
