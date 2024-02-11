@@ -20,22 +20,21 @@
         <div class="row g-5">
             <div class="col-lg-3 col-md-6">
                 <h5 class="text-white mb-4">Get In Touch</h5>
-                <p class="mb-2"><i class="fa fa-map-marker-alt me-3"></i>123 Street, New York, USA</p>
-                <p class="mb-2"><i class="fa fa-phone-alt me-3"></i>+012 345 67890</p>
-                <p class="mb-2"><i class="fa fa-envelope me-3"></i>info@example.com</p>
+                <p class="mb-2"><i class="fa fa-map-marker-alt me-3"></i>Road 12, Block 10B, Plot 8 Lekki Scheme II, Ajah, Lagos.</p>
+                <p class="mb-2"><i class="fa fa-phone-alt me-3"></i>+234 701 229 3598</p>
+                <a href="mailto:abnrealtorsgroup@gmail.com"><p class="mb-2"><i class="fa fa-envelope me-3"></i>abnrealtors@gmail.com</p></a>
                 <div class="d-flex pt-2">
                     <a class="btn btn-outline-light btn-social" href=""><i class="fab fa-twitter"></i></a>
-                    <a class="btn btn-outline-light btn-social" href=""><i class="fab fa-facebook-f"></i></a>
+                    <a class="btn btn-outline-light btn-social" href="https://www.facebook.com/achievers.achievers.716?mibextid=2JQ9ochttps://www.facebook.com/achievers.achievers.716?mibextid=2JQ9oc"><i class="fab fa-facebook-f"></i></a>
                     <a class="btn btn-outline-light btn-social" href=""><i class="fab fa-linkedin-in"></i></a>
+                    <a class="btn btn-outline-light btn-social" href="https://www.instagram.com/abnrealtorsgroup?igsh=ZmdyOWM0ejdxdzFy"><i class="fab fa-instagram"></i></a>
                 </div>
             </div>
             <div class="col-lg-3 col-md-6">
                 <h5 class="text-white mb-4">Quick Links</h5>
                 <a class="btn btn-link text-white-50" href="{% url 'about' %}">About Us</a>
-                <a class="btn btn-link text-white-50" href="">Contact Us</a>
-                <a class="btn btn-link text-white-50" href="">Our Services</a>
-                <a class="btn btn-link text-white-50" href="">Privacy Policy</a>
-                <a class="btn btn-link text-white-50" href="">Terms & Condition</a>
+                <a class="btn btn-link text-white-50" href="{% url 'contacts:contact' %}">Contact Us</a>
+                <a class="btn btn-link text-white-50" href="{% url 'about' %}">Our Services</a>
             </div>
             <div class="col-lg-3 col-md-6">
                 <h5 class="text-white mb-4">Photo Gallery</h5>
@@ -44,25 +43,25 @@
                         <img class="img-fluid rounded bg-light p-1" src="{% static 'img/about.jpg' %}" alt="">
                     </div>
                     <div class="col-4">
-                        <img class="img-fluid rounded bg-light p-1" src="{% static 'img/about.jpg' %}" alt="">
+                        <img class="img-fluid rounded bg-light p-1" src="{% static 'img/footergallery1.jpeg' %}" alt="">
                     </div>
                     <div class="col-4">
-                        <img class="img-fluid rounded bg-light p-1" src="{% static 'img/about.jpg' %}" alt="">
+                        <img class="img-fluid rounded bg-light p-1" src="{% static 'img/footergallery2.jpeg' %}" alt="">
                     </div>
                     <div class="col-4">
-                        <img class="img-fluid rounded bg-light p-1" src="{% static 'img/about.jpg' %}" alt="">
+                        <img class="img-fluid rounded bg-light p-1" src="{% static 'img/ceo.jpeg' %}" alt="">
                     </div>
                     <div class="col-4">
-                        <img class="img-fluid rounded bg-light p-1" src="{% static 'img/about.jpg' %}" alt="">
+                        <img class="img-fluid rounded bg-light p-1" src="{% static 'img/footergallery5.jpeg' %}" alt="">
                     </div>
                     <div class="col-4">
-                        <img class="img-fluid rounded bg-light p-1" src="{% static 'img/about.jpg' %}" alt="">
+                        <img class="img-fluid rounded bg-light p-1" src="{% static 'img/carousel-1.jpg' %}" alt="">
                     </div>
                 </div>
             </div>
             <div class="col-lg-3 col-md-6">
                 <h5 class="text-white mb-4">Our Mission</h5>
-                <p>Dolor amet sit justo amet elitr clita ipsum elitr est. Lorem ipsum dolor sit, amet consectetur adipisicing elit. Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+                <p>ABN Realtors Group offers efficient real estate services focused on client satisfaction, integrity, and excellence in Nigeria’s property market.</p>
                 <!-- <div class="position-relative mx-auto" style="max-width: 400px;">
                     <input class="form-control bg-transparent w-100 py-3 ps-4 pe-5" type="text" placeholder="Your email">
                     <button type="button" class="btn position-absolute top-0 end-0 " style="background-color: #0f2e4f; color: white">SignUp</button>
@@ -81,10 +80,10 @@
                 </div>
                 <div class="col-md-6 text-center text-md-end">
                     <div class="footer-menu">
-                        <a href="">Home</a>
+                        <a href="{% url 'index' %}">Home</a>
                         <a href="">Cookies</a>
-                        <a href="">Help</a>
-                        <a href="">FQAs</a>
+                        <a href="{% url 'contacts:contact' %}">Help</a>
+                        <a href="{% url 'about' %}">FQAs</a>
                     </div>
                 </div>
             </div>

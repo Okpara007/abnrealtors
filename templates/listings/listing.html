@@ -1,0 +1,293 @@
+{% extends 'base.html' %}
+{% load humanize %}
+{% block content %}
+
+<style>
+    body {
+        font-family: 'Arial', sans-serif;
+        line-height: 1.6;
+      }
+
+    .container {
+        width: 100%;
+        margin: auto;
+        overflow: hidden;
+        padding: 15px;
+    }
+    
+    #showcase-inner {
+        margin: auto;
+        text-align: center;
+        padding: 50px;
+    }
+    
+    #bc {
+        padding: 10px;
+        margin-bottom: 20px;
+    }
+    
+    #listing .container {
+        padding: 30px;
+        border-radius: 10px;
+    }
+    
+    .row {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        justify-content: space-between;
+    }
+    
+    .col-md-9, .col-md-3 {
+        padding: 15px;
+        flex: 0 0 auto;
+        width: 70%;
+    }
+    
+    .col-md-3 {
+        width: 25%;
+    }
+    
+    /* Adjusts the width for smaller screens */
+    @media (max-width: 768px) {
+        .col-md-9, .col-md-3 {
+            width: 100%;
+    }
+    }
+    
+    .btn-light {
+        background: #f4f4f4;
+        color: #333;
+    }
+    
+    .mb-3, .mb-4, .mb-5 {
+        margin-bottom: 1rem;
+    }
+    
+    .text-secondary {
+        color: #0a0604 !important;
+    }
+    
+    .list-group-item {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+    
+    /* Other styles as needed */
+    .btn-secondary {
+        color: #000;
+        background-color: #40B5E9;
+        border-color: #40B5E9;
+    }
+
+    .btn-secondary:hover {
+        color: #fff;
+        background-color: #0f2e4f;
+        border-color: #0f2e4f;
+    }
+
+    @media only screen and (max-width: 414px) {
+      /* Adjust styles for elements that need to change on mobile */
+      .container, .container-fluid {
+          padding: 0 15px; /* Add some padding on smaller screens */
+      }
+  
+      /* You may need to adjust text sizes for smaller screens */
+      h1, .h1 {
+          font-size: 24px; /* Example size; adjust as needed */
+      }
+  
+      /* Adjust image sizes */
+      img.img-fluid {
+          max-width: 100%;
+          height: auto; /* Maintain aspect ratio */
+      }
+  
+      /* Adjust any other specific elements that need to change on mobile */
+  }
+  
+</style>
+
+<section id="showcase-inner" class="py-5 text-center">
+  <div class="container">
+      <h1 class="display-4">{{ listing.title }}</h1>
+      <p style="color: #40B5E9;" class="lead">
+          <i class="fas fa-map-marker-alt"></i> {{ listing.city }}, {{ listing.state }}
+      </p>
+  </div>
+</section>
+
+  {% include 'partials/_alerts.html' %}
+
+  <!-- Breadcrumb -->
+  <section id="bc" class="mt-3">
+    <div class="container">
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a href="{% url 'index' %}">Home</a></li>
+            <li class="breadcrumb-item"><a href="{% url 'listings' %}">Listings</a></li>
+            <li class="breadcrumb-item active">{{ listing.title }}</li>
+        </ol>
+    </div>
+</section>
+
+
+  <!-- Listing -->
+  <section id="listing" class="py-4">
+    <div class="container">
+        <a href="{% url 'listings' %}" class="btn btn-secondary mb-4">Back To Listings</a>
+        <div class="row">
+            <div class="col-lg-9">
+                <!-- Main Image -->
+                <img src="{{ listing.photo_main.url }}" class="img-fluid mb-3" alt="Main Image">
+          <!-- Thumbnails -->
+          <!-- <div class="row mb-5 thumbs">
+            <div class="col-md-2">
+              <a href="assets/img/homes/home-inside-1.jpg" data-lightbox="home-images">
+                <img src="assets/img/homes/home-inside-1.jpg" alt="" class="img-fluid">
+              </a>
+            </div>
+            <div class="col-md-2">
+              <a href="assets/img/homes/home-inside-2.jpg" data-lightbox="home-images">
+                <img src="assets/img/homes/home-inside-2.jpg" alt="" class="img-fluid">
+              </a>
+            </div>
+            <div class="col-md-2">
+              <a href="assets/img/homes/home-inside-3.jpg" data-lightbox="home-images">
+                <img src="assets/img/homes/home-inside-3.jpg" alt="" class="img-fluid">
+              </a>
+            </div>
+            <div class="col-md-2">
+              <a href="assets/img/homes/home-inside-4.jpg" data-lightbox="home-images">
+                <img src="assets/img/homes/home-inside-4.jpg" alt="" class="img-fluid">
+              </a>
+            </div>
+            <div class="col-md-2">
+              <a href="assets/img/homes/home-inside-5.jpg" data-lightbox="home-images">
+                <img src="assets/img/homes/home-inside-5.jpg" alt="" class="img-fluid">
+              </a>
+            </div>
+            <div class="col-md-2">
+              <a href="assets/img/homes/home-inside-6.jpg" data-lightbox="home-images">
+                <img src="assets/img/homes/home-inside-6.jpg" alt="" class="img-fluid">
+              </a>
+            </div>
+          </div> -->
+          <!-- Fields -->
+          <div class="row mb-5 fields">
+            <div class="col-md-6">
+              <ul class="list-group list-group-flush">
+                <li class="list-group-item text-secondary">
+                  <i style="font-size: smaller;" class="fas fa-money-bill-alt"> Asking Price:</i> 
+                  <span class="float-right">₦{{ listing.price | intcomma }}</span>
+                </li>
+                <li class="list-group-item text-secondary">
+                  <i style="font-size: smaller;" class="fas fa-bed"> Bedrooms:</i> 
+                  <span class="float-right">{{ listing.bedrooms }}</span>
+                </li>
+                <li class="list-group-item text-secondary">
+                  <i style="font-size: smaller;" class="fas fa-bath"> Bathrooms:</i> 
+                  <span class="float-right">{{ listing.bathrooms }}</span>
+                </li>
+                <li class="list-group-item text-secondary">
+                  <i style="font-size: smaller;" class="fas fa-car"> Garage:</i> 
+                  <span class="float-right">NA
+                  </span>
+                </li>
+              </ul>
+            </div>
+            <div class="col-md-6">
+              <ul class="list-group list-group-flush">
+                <li class="list-group-item text-secondary">
+                  <i style="font-size: smaller;" class="fas fa-th-large"> Square Meters:</i> 
+                  <span class="float-right">{{ listing.sqm }} Sqm</span>
+                </li>
+                <li class="list-group-item text-secondary">
+                  <i style="font-size: smaller;" class="fas fa-square"> Lot Size:</i> 
+                  <span class="float-right">{{ listing.lot_size }} Acres
+                  </span>
+                </li>
+                <li class="list-group-item text-secondary">
+                  <i style="font-size: smaller;" class="fas fa-calendar"> Listing Date:</i> 
+                  <span class="float-right">{{ listing.list_date | timesince }}</span>
+                </li>
+                <li class="list-group-item text-secondary">
+                  <i style="font-size: smaller;" class="fas fa-bed"> house_type:</i> 
+                  <span class="float-right">{{ listing.house_type }}
+                  </span>
+                </li>
+
+
+              </ul>
+            </div>
+          </div>
+
+          <!-- Description -->
+          <div class="row mb-5">
+            <div class="col-md-12">
+              {{ listing.description }}
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-3">
+          <div class="card mb-3">
+            <img class="card-img-top" src="{{ listing.photo_1.url }}" style="width: auto; height: 250px" alt="...">
+            <div class="card-body">
+              <h5 class="card-title">Make Inquiry</h5>
+              <h6 class="text-secondary">Find out More</h6>
+            </div>
+          </div>
+          <button class="btn-primary btn-block btn-lg" data-bs-toggle="modal" data-bs-target="#inquiryModal">Make An Inquiry</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Inquiry Modal -->
+  <div class="modal fade" id="inquiryModal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="inquiryModalLabel">Make An Inquiry</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal"></span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <form action="{% url 'contacts:contact' %}" method="POST">
+            {% csrf_token %}
+            {% if user.is_authenticated %}
+              <input type="hidden" name="user_id" value="{{ user.id }}">
+            {% else %}
+              <input type="hidden" name="user_id" value="0}">
+            {% endif %}
+            <input type="hidden" name="listing_id" value="{{ listing.id }}">
+            <div class="form-group">
+              <label for="property_name" class="col-form-label">Property:</label>
+              <input type="text" name="listing" class="form-control" value="{{ listing.title }}">
+            </div>
+            <div class="form-group">
+              <label for="name" class="col-form-label">Name:</label>
+              <input type="text" name="name" class="form-control" {% if user.is_authenticated %} value="{{ user.first_name }} {{ user.last_name }}" {% endif %} required>
+            </div>
+            <div class="form-group">
+              <label for="email" class="col-form-label">Email:</label>
+              <input type="email" name="email" class="form-control" {% if user.is_authenticated %} value="{{ user.email }}" {% endif %} required>
+            </div>
+            <div class="form-group">
+              <label for="phone" class="col-form-label">Phone:</label>
+              <input type="text" name="phone" class="form-control">
+            </div>
+            <div class="form-group">
+              <label for="message" class="col-form-label">Message:</label>
+              <textarea name="message" class="form-control"></textarea>
+            </div>
+            <hr>
+            <input type="submit" value="Send" class="btn btn-block btn-secondary">
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  
+{% endblock %}

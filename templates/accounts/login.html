@@ -1,0 +1,84 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+<style>
+    body {
+        background: #ececec;
+    }
+    
+    .box-area {
+        width: 58rem;
+        border-radius: 1rem;
+    }
+    
+    .right-box {
+        padding: 40px 30px !important;
+    }
+    
+    ::placeholder {
+        font-size: 16px;
+    }
+    
+    @media only screen and (max-width: 768px){
+        .box-area {
+            margin: 0 10px;
+        }
+    
+        .left-box {
+            height: 100px;
+            overflow: hidden;
+        }
+    
+        .right-box {
+            padding: 20px;
+        }
+    }
+
+    .bg-light {
+        background-color: #ffffff !important;
+    }
+</style>
+<div class="container d-flex justify-content-center align-items-center min-vh-100">
+    <div class="row border rounded-5 p-3 bg-white shadow box-area">
+        <div class="col-md-6 rounded-4 d-flex justify-content-center align-items-center flex-column left-box" style="background: #40B5E9; border-radius: 1rem;">
+            <div style="border-radius: 1rem;" class="featured-image mb-3">
+                <img src="{% static 'img/Text field interaction.gif' %}" class="img-fluid rounded-5" style="width: 16rem;" alt="...">
+            </div>
+            <p class="text-white fs-2" style="font-weight: bold;">Be Verified!</p>
+            <small class="text-white text-wrap text-center" style="width: 17rem;">Join experienced Designers on this platform.</small>
+        </div>
+
+        <div class="col-md-6 right-box">
+            <div class="row align-items-center">
+                <div class="header-text mb-4">
+                    <h2 style="font-weight: bold;">Hello Again!</h2>
+                    <!-- <p>We are happy to have you back.</p> -->
+                </div>
+                {% include 'partials/_alerts.html' %}
+                <form action="{% url 'login' %}" method="POST">
+                    {% csrf_token %}
+                    <div class="input-group mb-3">
+                        <input type="text" name="username" class="form-control form-control-lg bg-light fs-6" placeholder="Username" required>
+                    </div>
+                    <div class="input-group mb-1">
+                        <input type="password" name="password" class="form-control form-control-lg bg-light fs-6" placeholder="Password" required>
+                    </div>
+    
+                    <div class="input-group mb-5 d-flex justify-content-between">
+                        <div class="form-check">
+                        </div>
+                    </div>
+                    <div class="input-group mb-3">
+                        <button class="btn btn-lg btn-primary w-100 fs-6">Login</button>
+                    </div>
+    
+                    <div class="row">
+                        <small>Don't have an account? <a href="{% url 'register' %}">Sign Up</a></small>
+                    </div>
+                </form>
+                
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

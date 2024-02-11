@@ -1,0 +1,129 @@
+{% extends 'base.html' %}
+{% load static%}
+
+{% block content %}
+
+<style>
+    body {
+        background: #ececec;
+    }
+    
+    .box-area {
+        width: 58rem;
+        border-radius: 1rem;
+    }
+    
+    .right-box {
+        padding: 40px 30px !important;
+    }
+    
+    ::placeholder {
+        font-size: 16px;
+    }
+    
+    @media only screen and (max-width: 768px){
+        .box-area {
+            margin: 0 10px;
+        }
+    
+        .left-box {
+            height: 100px;
+            overflow: hidden;
+        }
+    
+        .right-box {
+            padding: 20px;
+        }
+    }
+    
+    .line {
+        height: 1px;
+        width: 100%;
+        position: relative;
+        background-color: #d4d4d4;
+        margin: 36px 0;
+    }
+    
+    .line::before {
+        content: 'OR';
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        background-color: #fff;
+        color: #232836;
+        padding: 0 15px !important;
+    }
+
+    .bg-light {
+        background-color: #ffffff !important;
+    }
+</style>
+<div class="container d-flex justify-content-center align-items-center min-vh-100">
+    <div class="row border rounded-5 p-3 bg-white shadow box-area">
+        <div class="col-md-6 rounded-4 d-flex justify-content-center align-items-center flex-column left-box" style="background: #40B5E9; border-radius: 1rem;">
+            <div class="featured-image mb-3">
+                <img src="{% static 'img/Text field interaction.gif' %}" class="img-fluid rounded-5" style="width: 16rem;" alt="...">
+            </div>
+            <p class="text-white fs-2" style="font-weight: bold;">Sign Up!</p>
+            <small class="text-white text-wrap text-center" style="width: 17rem;">Join experienced Designers on this platform.</small>
+        </div>
+
+        <div class="col-md-6 right-box">
+            <div class="row align-items-center">
+                <div class="header-text mb-4">
+                    <h2 style="font-weight: bold;">Register!</h2>
+                    <!-- <p>We are happy to have you.</p> -->
+                </div>
+                {% include 'partials/_alerts.html' %}
+                <form action="{% url 'register' %}" method="POST">
+                    {% csrf_token %}
+                    <div class="input-group mb-3">
+                        <input type="text" name="first_name" class="form-control form-control-lg bg-light fs-6" placeholder="First Name" required>
+                    </div>
+
+                    <div class="input-group mb-3">
+                        <input type="text" name="last_name" class="form-control form-control-lg bg-light fs-6" placeholder="Last Name" required>
+                    </div>
+
+                    <div class="input-group mb-3">
+                        <input type="text" name="username" class="form-control form-control-lg bg-light fs-6" placeholder="Username" required>
+                    </div>
+    
+                    <div class="input-group mb-3">
+                        <input type="email" name="email" class="form-control form-control-lg bg-light fs-6" placeholder="Email" required>
+                    </div>
+    
+                    <div class="input-group mb-1">
+                        <input type="password" name="password" class="form-control form-control-lg bg-light fs-6" placeholder="Create Password" required>
+                    </div>
+    
+                    <div class="input-group mb-1 mt-3">
+                        <input type="password" name="password2" class="form-control form-control-lg bg-light fs-6" placeholder="Confirm Password" required>
+                    </div>
+    
+                    <div class="input-group mb-3 mt-3">
+                        <button class="btn btn-lg btn-primary w-100 fs-6" type="submit" value="register">Sign Up</button>
+                    </div>
+    
+                    <div class="row">
+                        <small>Already have an account? <a href="{% url 'login' %}">Log In</a></small>
+                    </div>
+    
+                    <!-- <div class="line">
+    
+                    </div>
+    
+                    <div class="input-group mb-3">
+                        <button class="btn btn-lg btn-light w-100 fs-6"><img src="{% static 'img/Google Logo History Png - Free Transparent PNG Logos.png' %}" alt="..." style="width: 1rem;" class="me-2"><small>Log In with Google</small></button>
+                    </div>
+    
+                    <div class="input-group mb-3">
+                        <button class="btn btn-lg btn-primary w-100 fs-6"><img src="{% static 'img/Free download _ Facebook Scalable Graphics Icon, Facebook logo , Facebook logo transparent background PNG clipart.jpg' %}" alt="..." style="width: 1rem;" class="me-2"><small>Log In with Facebook</small></button>
+                    </div> -->
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

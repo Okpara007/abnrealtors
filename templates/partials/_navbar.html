@@ -15,34 +15,63 @@
                 <a href="{% url 'index' %}" 
                 {% if "/" == request.path %}
                 class="nav-item nav-link active"
-                {%else%}
+                {% else %}
                 class="nav-item nav-link"
                 {% endif %}>
                 Home</a>
                 <a href="{% url 'about'%}" 
                 {% if "about" in request.path %}
                 class="nav-item nav-link active"
-                {%else%}
+                {% else %}
                 class="nav-item nav-link"
                 {% endif %}>About</a>
-                <!-- <a href="about.html" class="nav-item nav-link">Listings</a> -->
-                
-                <!-- <div class="nav-item dropdown">
-                    <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Pages</a>
-                    <div class="dropdown-menu rounded-0 m-0">
-                        <a href="testimonial.html" class="dropdown-item">Testimonial</a>
-                        <a href="404.html" class="dropdown-item">404 Error</a>
-                    </div>
-                </div> -->
-                <!-- <a href="contact.html" class="nav-item nav-link">Contact</a> -->
+                <a href="{% url 'listings' %}" 
+                {% if "listings" in request.path %}
+                class="nav-item nav-link active"
+                {% else %}
+                class="nav-item nav-link"
+                {% endif %}
+                >Listings</a>
+                <a href="{% url 'contacts:contact' %}" 
+                {% if "contact" in request.path %}
+                class="nav-item nav-link active"
+                {% else %}
+                class="nav-item nav-link"
+                {% endif %}>Contact</a>
             </div>
-            testtest
-            <!-- <ul class="navbar-nav ml-auto">
+            <ul class="navbar-nav ml-auto">
+                {% if user.is_authenticated %}
                 <li class="nav-item mr-3">
-                  <a class="nav-link" href="register.html">
-                    <i class="fas fa-user-plus"></i> Register</a>
-                </li>
-              </ul> -->
+                    <a href="{% url 'dashboard' %}"
+                        {% if "dashboard" in request.path %}
+                            class="nav-item nav-link active"
+                        {% else %}
+                            class="nav-item nav-link"
+                        {% endif %}>
+                         Dashboard</a>
+                    </li>
+
+                    <li class="nav-item mr-3"></li>  <!--  when clicked it will run the javascript code, look for the id of logout and submit the form which is to be created underneath the anchor tag -->
+                    <a href="javascript:{document.getElementById('logout').submit()}" class="nav-link" class="nav-link">
+                        <i class="fas fa-sign-out-alt"></i> Logout
+                    </a>
+                    <form action="{% url 'logout' %}" method="POST" id="logout">
+                        {% csrf_token %}  <!--  Cross-Site Request Forgery. It is a type of malicious exploit where unauthorized commands are transmitted from a user that a web application trusts.  -->
+                        <input type="hidden">
+                    </form>
+                    </li>
+                {% else %}
+                    <li class="nav-item mr-3">
+                    <a href="{% url 'register' %}"
+                        {% if "register" in request.path %}
+                            class="nav-item nav-link active"
+                        {% else %}
+                            class="nav-item nav-link"
+                        {% endif %}>
+                        <i class="fas fa-user-plus"></i> Register</a>
+                    </li>
+                {% endif %}
+              </ul>
         </div>
     </nav>
 </div>

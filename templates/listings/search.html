@@ -1,0 +1,96 @@
+{% extends 'base.html' %}
+{% load humanize %}
+{% block content %}
+<style>
+    .btn-check:active+.btn-outline-primary, .btn-check:checked+.btn-outline-primary, .btn-outline-primary.active, .btn-outline-primary.dropdown-toggle.show, .btn-outline-primary:active {
+        color: #fff;
+        background-color: #40B5E9;
+        border-color: #40B5E9;
+    }
+
+    a:hover {
+        color: black;
+        }
+
+</style>
+<div class="container-fluid mb-5 wow fadeIn" data-wow-delay="0.1s" style="padding: 35px; background-color: #40B5E9">
+  <div class="container">
+    <form action="{% url 'search' %}">
+      <div class="row g-2">
+          <div class="col-md-10">
+              <div class="row g-2">
+                  <div class="col-md-4">
+                      <input type="text" name="keywords" class="form-control border-0 py-3"
+                          placeholder="Enter Listing Keywords" value="{{ values.keywords }}">
+                  </div>
+                  <div class="col-md-4">
+                      <select name="house_type" class="form-select border-0 py-3">
+                          <option selected="true" disabled="disabled">Property Type</option>
+                          {% for key,value in house_type_choices.items %}
+                              <option value="{{ key }}"
+                                {% if key == values.house_type %}
+                                    selected
+                                {% endif %}>{{ value }}</option>
+                          {% endfor %}
+                      </select>
+                  </div>
+                  <div class="col-md-4">
+                      <select name="state" class="form-select border-0 py-3">
+                          <option selected="true" disabled="disabled">Select State</option>
+                          {% for key,value in state_choices.items %}
+                              <option value="{{ key }}"
+                                {% if key == values.state %}
+                                    selected
+                                {% endif %}>{{ value }}</option>
+                          {% endfor %}
+                      </select>
+                  </div>
+              </div>
+          </div>
+          <div class="col-md-2">
+              <button type="submit" style="background-color: #0f2e4f; color:white" class="btn btn-secondary btn-block border-0 w-100 py-3">Search</button>
+          </div>
+  </form>
+      </div>
+  </div>
+</div>
+<div class="container-xxl py-5">
+  <div class="container">
+          <div class="tab-content">
+              <div id="tab-1" class="tab-pane fade show p-0 active">
+                  <div class="row g-4">
+                    {% if listings %}
+                    {% for listing in listings %}
+                        <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.1s">
+                            <div style="height: 600px; width:100%" class="property-item rounded overflow-hidden">
+                                <div class="position-relative overflow-hidden">
+                                    <a href="{% url 'listing' listing.id %}"><img style="height: 416px; width:100%" src="{{ listing.photo_main.url }}" alt=""></a>
+                                
+                                    <div style="color: #40B5E9;" class="bg-white rounded-top position-absolute start-0 bottom-0 mx-4 pt-1 px-3">{{ listing.house_type }}</div>
+                                </div>
+                                <div class="p-4 pb-0">
+                                    <h5 style="color: #40B5E9;" class=" mb-3">₦{{ listing.price | intcomma }}</h5>
+                                    <a class="d-block h5 mb-2" href="{% url 'listing' listing.id %}">{{ listing.title }}</a>
+                                    <p style="color: black;"><i style="color: #40B5E9;" class="fa fa-map-marker-alt me-2"></i>{{ listing.address }}{{ listing.city }},{{ listing.state }}</p>
+                                </div>
+                                <div class="d-flex border-top">
+                                    <small class="flex-fill text-center border-end py-2"><i style="color: #40B5E9;" class="fa fa-ruler-combined  me-2"></i>{{ listing.sqft }} Sqft</small>
+                                    <small class="flex-fill text-center border-end py-2"><i style="color: #40B5E9;" class="fa fa-bed  me-2"></i>{{ listing.bedrooms }} Bed</small>
+                                    <small class="flex-fill text-center py-2"><i style="color: #40B5E9;" class="fa fa-bath  me-2"></i>{{ listing.bathrooms }} Bath</small>
+                                </div>
+                            </div>
+                        </div>
+                    {% endfor %}
+                {% else %}
+                <div class="col-md-12">
+                    <p>No Listing Available</p>
+                </div>
+                {% endif %} 
+                  </div>
+          </div>
+      </div>
+  </div>
+  </div>
+</div>
+  
+{% endblock %}

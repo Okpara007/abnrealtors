@@ -34,12 +34,17 @@ ALLOWED_HOSTS = ['abnrealtors.onrender.com', 'localhost', '127.0.0.1']
 
 INSTALLED_APPS = [
     "pages.apps.PagesConfig",
+    "listings.apps.ListingsConfig",
+    "accounts.apps.AccountsConfig",
+    "contacts.apps.ContactsConfig",
+    "landlistings.apps.LandlistingsConfig",
     "django.contrib.admin",
     "django.contrib.auth",
     "django.contrib.contenttypes",
     "django.contrib.sessions",
     "django.contrib.messages",
     "django.contrib.staticfiles",
+    "django.contrib.humanize"
 ]
 
 MIDDLEWARE = [
@@ -79,8 +84,11 @@ WSGI_APPLICATION = "abn.wsgi.application"
 
 DATABASES = {
     "default": {
-        "ENGINE": "django.db.backends.sqlite3",
-        "NAME": BASE_DIR / "db.sqlite3",
+        "ENGINE": "django.db.backends.postgresql",
+        "NAME": 'abndb',
+        "USER": 'abn',
+        "PASSWORD": 'abnrealtors',
+        "HOST": 'localhost'
     }
 }
 
@@ -124,6 +132,11 @@ STATIC_URL = "/static/"
 STATICFILES_DIRS = [
     os.path.join(BASE_DIR, 'abn/static')
 ]
+
+# Media folder settings To enable images to show up you do this below then go to urls.py at the btre folder
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+MEDIA_URL = '/media/'
+
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
 
@@ -131,3 +144,17 @@ STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 # https://docs.djangoproject.com/en/5.0/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
+
+from django.contrib.messages import constants as messages
+
+MESSAGE_TAGS = {
+    messages.ERROR: "danger"
+} 
+
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_PORT = 465
+EMAIL_USE_SSL=True # Secure Sockets Layer and TLS Transport Layer Security
+# DEFAULT_FROM_EMAIL = "MY APP"
+EMAIL_HOST_USER="chinemeremokpara93@gmail.com"
+EMAIL_HOST_PASSWORD="sjjv gzyd skqs ukge"
