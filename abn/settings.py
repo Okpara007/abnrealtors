@@ -92,14 +92,15 @@ if not DEBUG:
 else:
 
     DATABASES = {
-        "default": {
-            "ENGINE": "django.db.backends.postgresql",
-            "NAME": 'abndb',
-            "USER": 'abndb_user',
-            "PASSWORD": 'abnrealtors',
-            "HOST": 'dpg-cn4v6kvqd2ns73enru2g-a'
-        }
+    'default': {
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': os.environ.get('DATABASE_NAME'),  # Environment variable set on Render
+        'USER': os.environ.get('DATABASE_USER'),
+        'PASSWORD': os.environ.get('DATABASE_PASSWORD'),
+        'HOST': os.environ.get('DATABASE_HOST'),
+        'PORT': os.environ.get('DATABASE_PORT', 5432),  # Default port for PostgreSQL is 5432
     }
+}
 
 
 # Password validation
