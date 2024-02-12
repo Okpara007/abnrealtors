@@ -97,7 +97,7 @@ else:
             "NAME": 'abndb',
             "USER": 'abn',
             "PASSWORD": 'abnrealtors',
-            "HOST": 'localhost'
+            "HOST": 'dpg-cn4v6kvqd2ns73enru2g-a'
         }
     }
 
