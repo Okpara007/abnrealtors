@@ -27,7 +27,7 @@ SECRET_KEY = os.environ.get('SECRET_KEY', "django-insecure-o(o9r)30-!(==cw8o30zf
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['127.0.0.1', 'localhost', 'abn-realtors.onrender.com']
+ALLOWED_HOSTS = ['abn-realtors.onrender.com', 'localhost', '127.0.0.1']
 
 
 
@@ -92,16 +92,14 @@ if not DEBUG:
 else:
 
     DATABASES = {
-        'default': {
-            'ENGINE': 'django.db.backends.postgresql',
-            'NAME': 'abndb', 
-            'USER': 'abn',
-            'PASSWORD': '7evenrules',
-            'HOST': 'localhost',
-            'PORT': 5432,  # Default port for PostgreSQL is 5432
+        "default": {
+            "ENGINE": "django.db.backends.postgresql",
+            "NAME": 'abndb',
+            "USER": 'abn',
+            "PASSWORD": 'abnrealtors',
+            "HOST": 'localhost'
         }
     }
-
 
 
 # Password validation
@@ -165,6 +163,7 @@ MESSAGE_TAGS = {
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 EMAIL_HOST = 'smtp.gmail.com'
 EMAIL_PORT = 465
-EMAIL_USE_SSL = True
-EMAIL_HOST_USER = os.environ.get('EMAIL_HOST_USER')
-EMAIL_HOST_PASSWORD = os.environ.get('EMAIL_HOST_PASSWORD')
+EMAIL_USE_SSL=True # Secure Sockets Layer and TLS Transport Layer Security
+# DEFAULT_FROM_EMAIL = "MY APP"
+EMAIL_HOST_USER="chinemeremokpara93@gmail.com"
+EMAIL_HOST_PASSWORD="sjjv gzyd skqs ukge"
