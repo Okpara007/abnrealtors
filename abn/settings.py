@@ -95,7 +95,7 @@ else:
         "default": {
             "ENGINE": "django.db.backends.postgresql",
             "NAME": 'abndb',
-            "USER": 'abn',
+            "USER": 'abndb_user',
             "PASSWORD": 'abnrealtors',
             "HOST": 'dpg-cn4v6kvqd2ns73enru2g-a'
         }
