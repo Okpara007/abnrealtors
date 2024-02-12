@@ -11,6 +11,7 @@ https://docs.djangoproject.com/en/5.0/ref/settings/
 """
 
 from pathlib import Path
+import dj_database_url
 import os
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
@@ -24,7 +25,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = "django-insecure-o(o9r)30-!(==cw8o30zfe3)p6wh7o#0d79^n7@v!$8&cs8z8t"
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = os.environ.get('DEBUG', 'True')=="True"
 
 ALLOWED_HOSTS = ['abn-realtors.onrender.com', 'localhost', '127.0.0.1']
 
@@ -83,15 +84,22 @@ WSGI_APPLICATION = "abn.wsgi.application"
 # Database
 # https://docs.djangoproject.com/en/5.0/ref/settings/#databases
 
-DATABASES = {
-    "default": {
-        "ENGINE": "django.db.backends.postgresql",
-        "NAME": 'abndb',
-        "USER": 'abn',
-        "PASSWORD": 'abnrealtors',
-        "HOST": 'localhost'
+if not DEBUG:
+    DATABASES = {
+        "default": dj_database_url.parse(os.environ.get("DATABASE_URL"))
     }
-}
+
+else:
+
+    DATABASES = {
+        "default": {
+            "ENGINE": "django.db.backends.postgresql",
+            "NAME": 'abndb',
+            "USER": 'abn',
+            "PASSWORD": 'abnrealtors',
+            "HOST": 'localhost'
+        }
+    }
 
 
 # Password validation
