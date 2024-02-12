@@ -26,7 +26,8 @@ SECRET_KEY = "django-insecure-o(o9r)30-!(==cw8o30zfe3)p6wh7o#0d79^n7@v!$8&cs8z8t
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['abnrealtors.onrender.com', 'localhost', '127.0.0.1']
+ALLOWED_HOSTS = ['abn-realtors.onrender.com', 'localhost', '127.0.0.1']
+
 
 
 
