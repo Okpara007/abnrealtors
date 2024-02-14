@@ -1,5 +1,6 @@
 from django.db import models
 from datetime import datetime
+from cloudinary.models import CloudinaryField
 
 class LandListing(models.Model):
     title = models.CharField(max_length=200, blank=True)
@@ -11,7 +12,7 @@ class LandListing(models.Model):
     lot_size = models.DecimalField(max_digits=5, decimal_places=1, blank=True)
     description = models.TextField(blank=True)
     list_date = models.DateField(default=datetime.now, blank=True)
-    photo_main = models.ImageField(upload_to='photos/%Y/%m/%d/', blank=True)
+    photo_main = CloudinaryField('image', blank=True)
     is_published = models.BooleanField(default=True)
     
     def __str__(self):

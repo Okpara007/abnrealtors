@@ -13,6 +13,9 @@ https://docs.djangoproject.com/en/5.0/ref/settings/
 import dj_database_url
 from pathlib import Path
 import os
+import cloudinary
+import cloudinary.uploader
+import cloudinary.api
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -44,7 +47,8 @@ INSTALLED_APPS = [
     "django.contrib.sessions",
     "django.contrib.messages",
     "django.contrib.staticfiles",
-    "django.contrib.humanize"
+    "django.contrib.humanize",
+    "cloudinary"
 ]
 
 MIDDLEWARE = [
@@ -93,8 +97,8 @@ DATABASES = {
 }
 
 database_url = os.environ.get("DATABASE_URL")
-
-DATABASES["default"] = dj_database_url.parse(database_url)
+if database_url:
+    DATABASES["default"] = dj_database_url.parse(database_url)
 
 
 # Password validation
@@ -162,3 +166,9 @@ EMAIL_USE_SSL=True # Secure Sockets Layer and TLS Transport Layer Security
 # DEFAULT_FROM_EMAIL = "MY APP"
 EMAIL_HOST_USER="chinemeremokpara93@gmail.com"
 EMAIL_HOST_PASSWORD="sjjv gzyd skqs ukge"
+
+cloudinary.config( 
+  cloud_name = "dystjcg1j", 
+  api_key = "716197218755935", 
+  api_secret = "Fq1AYvBjvSZy7M6rSbY8W9ABDWo" 
+)
