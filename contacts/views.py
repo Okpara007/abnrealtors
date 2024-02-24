@@ -45,7 +45,7 @@ def contact(request):
 
         # Prepare and send the email notification
         email_subject = f'{listing_type.capitalize()} Listing Inquiry'
-        admin_url = 'http://127.0.0.1:8000/admin/'  # Local admin URL
+        admin_url = 'https://abn-realtors.onrender.com/admin/'  # Local admin URL
         email_body = (
             f'{listing_title}.\n'
             f'There has been an inquiry. Sign into the admin panel for more info.\n'
