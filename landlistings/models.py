@@ -12,7 +12,7 @@ class LandListing(models.Model):
     lot_size = models.DecimalField(max_digits=5, decimal_places=1, blank=True)
     description = models.TextField(blank=True)
     list_date = models.DateField(default=datetime.now, blank=True)
-    photo_main = CloudinaryField('image', blank=True)
+    photo_main = CloudinaryField('main_image', blank=True)
     is_published = models.BooleanField(default=True)
     
     def __str__(self):

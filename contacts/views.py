@@ -56,11 +56,11 @@ def contact(request):
             email_subject,
             email_body,
             'abnrealtorsgroup@gmail.com',
-            ['chinemeremokpara93@gmail.com','abnrealtorsgroup@gmail.com', 'pwabwawilliams@gmail.com'],
+            ['chinemeremokpara93@gmail.com', 'okpechichinedum@gmail.com'],
             fail_silently=True
         )
 
-        messages.success(request, 'Your request has been submitted. We will get back to you soon.')
+        messages.success(request, 'Your request has been submitted. Log in to view listings.')
 
         # Redirect logic after saving the contact
         return redirect(f'/{listing_type}listings/{listing_reference_id}' if listing_reference_id else 'contacts:contact')
