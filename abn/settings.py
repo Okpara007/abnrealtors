@@ -96,9 +96,9 @@ DATABASES = {
     }
 }
 
-database_url = os.environ.get("DATABASE_URL")
-if database_url:
-    DATABASES["default"] = dj_database_url.parse(database_url)
+# database_url = os.environ.get("DATABASE_URL")
+# if database_url:
+DATABASES["default"] = dj_database_url.parse("postgres://abndbi_user:Qpoy5VJLDYJ4sh87ZmTqpFLLyiwlEN8B@dpg-cp0fq0q1hbls73e9skb0-a.oregon-postgres.render.com/abndbi")
 
 
 # Password validation
