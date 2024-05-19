@@ -25,11 +25,11 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/5.0/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = os.environ.get("SECRET_KEY")
+SECRET_KEY = "db8145e2d89f48d2e0a8abe078b7e9d7"
 # db8145e2d89f48d2e0a8abe078b7e9d7
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = os.environ.get("DEBUG", "False").lower() == "true"
+DEBUG = os.environ.get("DEBUG", "False").lower() == "false"
 
 ALLOWED_HOSTS = ['abn-realtors.onrender.com', 'localhost', '127.0.0.1', 'www.abnrealtorsgroup.com']
 
