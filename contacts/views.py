@@ -49,7 +49,9 @@ def contact(request):
         email_body = (
             f'{listing_title}.\n'
             f'There has been an inquiry. Sign into the admin panel for more info.\n'
-            f'Admin Panel: {admin_url}'
+            f'Admin Panel: {admin_url}.\n'
+            f'{new_contact.message}'
+            
         )
 
         send_mail(
