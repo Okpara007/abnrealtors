@@ -58,7 +58,7 @@ def contact(request):
             email_subject,
             email_body,
             'abnrealtorsgroup@gmail.com',
-            ['chinemeremokpara93@gmail.com', 'okpechichinedum@gmail.com'],
+            ['chinemeremokpara93@gmail.com', 'okpechichinedum@gmail.com', 'Info@abn.com'],
             fail_silently=True
         )
 
