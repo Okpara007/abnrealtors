@@ -51,7 +51,6 @@ def contact(request):
             f'There has been an inquiry. Sign into the admin panel for more info.\n'
             f'Admin Panel: {admin_url}.\n'
             f'{new_contact.message}'
-            
         )
 
         send_mail(

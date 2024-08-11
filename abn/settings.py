@@ -88,18 +88,20 @@ WSGI_APPLICATION = "abn.wsgi.application"
 # https://docs.djangoproject.com/en/5.0/ref/settings/#databases
 
 DATABASES = {
-    "default": {
-        "ENGINE": "django.db.backends.postgresql",
-        "NAME": 'abndbI',
-        "USER": 'macintosh',
-        "PASSWORD": 'abnrealtors',
-        "HOST": 'localhost'
-    }
+    'default': dj_database_url.config(
+        default='postgresql://postgres.pzsdfbwddmonlwxvlktf:OM4dENYZUfmSsU0k@aws-0-ap-south-1.pooler.supabase.com:6543/postgres',
+        conn_max_age=600,
+        ssl_require=True  # Ensure SSL is required
+    )
 }
+
+
+
+# postgresql://abndb_ho6t_user:OdPEoQknXZIQSM63WMnVO9KZyMxvbrMM@dpg-cqs8uu0gph6c73a8dum0-a.oregon-postgres.render.com/abndb_ho6t
 
 # database_url = os.environ.get("DATABASE_URL")
 # if database_url:
-DATABASES["default"] = dj_database_url.parse("postgres://abndbi_user:Qpoy5VJLDYJ4sh87ZmTqpFLLyiwlEN8B@dpg-cp0fq0q1hbls73e9skb0-a.oregon-postgres.render.com/abndbi")
+# DATABASES["default"] = dj_database_url.parse("postgresql://abndb_ho6t_user:OdPEoQknXZIQSM63WMnVO9KZyMxvbrMM@dpg-cqs8uu0gph6c73a8dum0-a.oregon-postgres.render.com/abndb_ho6t")
 
 
 
